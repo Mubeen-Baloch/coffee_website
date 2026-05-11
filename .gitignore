@@ -1,1 +1,18 @@
-Nothing should be ignored based on the provided file changes. The changes only include markdown files (.md) and a CSS file (.css), which are source/config files that should not be ignored.
+```
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Original rules preserved
+*.log
+```
