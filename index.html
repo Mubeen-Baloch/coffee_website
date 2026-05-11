@@ -45,15 +45,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Montserrat:wght@400;500;600;700&family=Great+Vibes&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Montserrat:wght@400;500;600;700&family=Great+Vibes&display=swap&display=swap"
+        &display=swap" rel="stylesheet">
+    <!-- Critical CSS inlined for above-the-fold content -->
+    <style>
+        :root{--color-primary:#3E2723;--color-primary-light:#5D4037;--color-secondary:#D7CCC8;--color-accent:#D4A017;--color-bg-light:#FDFBF7;--color-text-main:#2C2C2C;--font-heading:'Playfair Display',Georgia,serif;--font-body:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font-body);color:var(--color-text-main);background:var(--color-bg-light);line-height:1.6}
+        .navbar{position:fixed;top:0;left:0;right:0;height:80px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;display:flex;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;width:100%}
+        .logo a{text-decoration:none;font-size:1.5rem;font-weight:700}.coffee{color:var(--color-primary)}.plus{color:var(--color-accent)}
+        .nav-links{display:flex;gap:2rem;list-style:none}.nav-links a{text-decoration:none;color:var(--color-text-main);font-weight:500;transition:color .3s}.nav-links a:hover{color:var(--color-accent)}
+        .btn{display:inline-block;padding:.75rem 1.5rem;border-radius:2rem;text-decoration:none;font-weight:600;transition:all .3s}.btn-outline{border:2px solid var(--color-primary);color:var(--color-primary)}.btn-outline:hover{background:var(--color-primary);color:#fff}
+        .hamburger{display:none}
+        .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;background:linear-gradient(135deg,var(--color-bg-light) 0%,var(--color-secondary) 100%);overflow:hidden;padding:6rem 2rem 2rem}
+        .hero-content{max-width:1200px;text-align:center;z-index:10}
+        .hero-title{font-family:var(--font-heading);font-size:clamp(2.5rem,8vw,6rem);line-height:1.1;margin-bottom:2rem;color:var(--color-primary)}
+        .hero-script{font-family:'Great Vibes',cursive;display:block;font-size:clamp(3rem,10vw,8rem);color:var(--color-accent)}
+        .hero-collage{width:280px;height:280px;margin:0 auto 2rem;position:relative;border-radius:50%;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.2)}
+        .collage-item{position:absolute;width:60%;height:60%;background-size:cover;background-position:center;border-radius:50%}
+        .collage-item:nth-child(1){top:0;left:0}.collage-item:nth-child(2){top:0;right:0}.collage-item:nth-child(3){bottom:0;left:0}.collage-item:nth-child(4){bottom:0;right:0}
+        .click-explore{display:inline-block;padding:1rem 2rem;background:var(--color-accent);color:#fff;text-decoration:none;border-radius:2rem;font-weight:600;transition:transform .3s}.click-explore:hover{transform:scale(1.05)}
+        .floating-bean{position:absolute;width:60px;height:60px;background:url('floating_bean.png') center/contain no-repeat;opacity:.6;animation:floatY 6s ease-in-out infinite,spinSlow 12s linear infinite}
+        .bean-1{top:10%;left:10%}.bean-2{top:20%;right:15%}.bean-3{bottom:30%;left:20%}.bean-4{bottom:10%;right:10%}
+        @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+        @keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+        .quality-badge{width:120px;height:120px;margin:2rem auto 0;position:relative}
+        .badge-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center}
+    </style>
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
 </head>
 
 <body>
 
+    <!-- ══ MAIN CONTENT ═══════════════════════════════════════════════════ -->
+    <main id="main-content">
     <!-- ══ NAVBAR ══════════════════════════════════════════════════════ -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
             <div class="logo">
                 <a href="index.html"><span class="coffee">coffee</span><span class="plus">+</span></a>
@@ -84,18 +114,18 @@
 
         <div class="hero-content">
             <!-- Photo collage circle -->
-            <div class="hero-collage">
+            <div class="hero-collage" style="width:280px;height:280px;">
                 <div class="collage-item"
-                    style="background-image:url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=400&q=80')">
+                    style="background-image:url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=400&q=80');width:168px;height:168px;">
                 </div>
                 <div class="collage-item"
-                    style="background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80')">
+                    style="background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80');width:168px;height:168px;">
                 </div>
                 <div class="collage-item"
-                    style="background-image:url('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80')">
+                    style="background-image:url('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80');width:168px;height:168px;">
                 </div>
                 <div class="collage-item"
-                    style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=400&q=80')">
+                    style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=400&q=80');width:168px;height:168px;">
                 </div>
             </div>
 
@@ -157,8 +187,7 @@
         <div class="our-coffee-section">
             <div class="map-bg"></div>
             <div class="plant-sketch">
-                <img src="floating_bean.png" alt="Coffee branch illustration" class="plant-icon"
-                    style="width:100%;height:100%;object-fit:contain;">
+                <img src="floating_bean.png" alt="Coffee branch illustration" class="plant-icon" width="225" height="112" width="225" height="112" style="width:100%;height:100%;object-fit:contain;">
             </div>
 
             <div class="red-star star-1">✦</div>
@@ -183,7 +212,7 @@
         <!-- ENERGIZER -->
         <div class="product-item reveal">
             <div class="bag-container">
-                <img src="energizer.svg" alt="Energizer Coffee Bag" class="product-bag-img">
+                <img src="energizer.svg" alt="Energizer Coffee Bag - Bold Uplifting Full-bodied Ethiopian Blend" class="product-bag-img" width="300" height="400">
             </div>
             <div class="product-info">
                 <div class="logo-medium"><span class="coffee">coffee</span><span class="plus">+</span> <span
@@ -198,7 +227,7 @@
         <!-- FANTASY -->
         <div class="product-item reveal reveal-delay-1">
             <div class="bag-container">
-                <img src="fantasy.svg" alt="Fantasy Coffee Bag" class="product-bag-img">
+                <img src="fantasy.svg" alt="Fantasy Coffee Bag - Smooth Aromatic Light-bodied Ethiopian Blend" class="product-bag-img" width="300" height="400">
             </div>
             <div class="product-info">
                 <div class="logo-medium"><span class="coffee">coffee</span><span class="plus">+</span> <span
@@ -213,7 +242,7 @@
         <!-- NOSTALGIA -->
         <div class="product-item reveal">
             <div class="bag-container">
-                <img src="nostalgia.svg" alt="Nostalgia Coffee Bag" class="product-bag-img">
+                <img src="nostalgia.svg" alt="Nostalgia Coffee Bag - Balanced Comforting Classic Medium Roast" class="product-bag-img" width="300" height="400">
             </div>
             <div class="product-info">
                 <div class="logo-medium"><span class="coffee">coffee</span><span class="plus">+</span> <span
@@ -228,7 +257,7 @@
 
     <!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
     <footer id="contact" class="footer-dark">
-        <div class="join-bg-text">
+        <div class="join-bg-text" role="presentation" aria-hidden="true">
             <div class="join-row">Join the Movement Join the Movement Join the Movement</div>
             <div class="join-row">Join the Movement Join the Movement Join the Movement</div>
             <div class="join-row">Join the Movement Join the Movement Join the Movement</div>
@@ -268,11 +297,14 @@
                     <a href="#" aria-label="X">X</a>
                 </div>
             </div>
-        </div>
+        </main>
     </footer>
 
+    </main>
+    <!-- END MAIN CONTENT -->
+
     <script src="site-config.js"></script>
-    <script src="script.js"></script>
+    <script src="script.min.js"></script>
 </body>
 
 </html>
