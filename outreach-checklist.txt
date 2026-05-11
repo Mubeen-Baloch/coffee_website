@@ -1,0 +1,22 @@
+Coffee+ — white-hat outreach checklist (off-page pillar)
+=======================================================
+
+Linkable assets (host on site first):
+- /impact.html — Giving Coffee Initiative + partner transparency
+- /blog/what-is-ethiopian-arabica.html — origin education (easy to cite)
+- /guides/premium-ethical-ethiopian-coffee-pakistan.html — ethical + local intent
+
+Prospecting (Islamabad / Rawalpindi + Pakistan digital):
+- Student societies / campus newsletters (study focus angle)
+- Tech meetups, dev communities, coworking blogs (coding productivity angle)
+- Lifestyle / food bloggers (ethical Ethiopian + delivery)
+
+Outreach rules:
+- Personalised email: reference their recent article or audience
+- Ask for editorial consideration, not “link insertion”
+- Disclose any sponsorship; paid links must use rel="sponsored" (or nofollow)
+
+Monthly KPI loop (Search Console + GA4):
+- Top queries by impression: improve title/meta/FAQ for CTR
+- Landing pages with high traffic + low conversion: strengthen CTA + PDP links
+- New content: 2+ internal links from existing hubs/PDPs

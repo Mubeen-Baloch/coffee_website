@@ -1,0 +1,11 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.coffeewebsite-ebon.vercel.app" }],
+      "destination": "https://coffeewebsite-ebon.vercel.app/:path*",
+      "permanent": true
+    }
+  ]
+}

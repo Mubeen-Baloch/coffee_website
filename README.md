@@ -1,4 +1,4 @@
-# Coffee+ | Together We Brew Change
+﻿# Coffee+ | Together We Brew Change
 
 Coffee+ is a purpose-led coffee brand and digital initiative designed to turn everyday coffee moments into meaningful humanitarian impact. Our mission is to provide premium, ethically sourced coffee while supporting vital humanitarian efforts through year-round giving.
 
@@ -36,6 +36,14 @@ We offer a curated selection of premium Ethiopian Arabica blends, each with its 
 1.  Clone this repository or download the source files.
 2.  Open `index.html` in any modern web browser.
 3.  Navigate through the site using the menu to explore our range and mission.
+
+## Deploy (Vercel)
+
+Default production URL: **https://coffeewebsite-ebon.vercel.app/** — `sitemap.xml`, `robots.txt`, canonicals, and `site-config.js` use this as the committed fallback.
+
+1. Connect the repo; set **Build Command** to `npm run build` and **Install Command** to `npm install` (or leave defaults if Vercel auto-detects `package.json`).
+2. **`npm run build`** runs `scripts/patch-site-url.mjs`: on **Preview** deploys it rewrites absolute URLs to `https://$VERCEL_URL` so canonicals match the preview host. On **Production**, set **`SITE_URL`** (e.g. `https://yourbrand.com`) in Vercel environment variables to rewrite from the default Vercel URL to your custom domain (no manual find-replace).
+3. **`www` → apex**: `vercel.json` redirects `www.coffeewebsite-ebon.vercel.app` → `coffeewebsite-ebon.vercel.app`. When you add a custom domain with `www`, add another redirect block in `vercel.json` for that host (see [Vercel redirects](https://vercel.com/docs/project-configuration#redirects)).
 
 ---
 

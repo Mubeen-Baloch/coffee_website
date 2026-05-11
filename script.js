@@ -1,3 +1,25 @@
+(function initCoffeePlusGA() {
+    const id = window.COFFEEPLUS && window.COFFEEPLUS.ga4MeasurementId;
+    if (!id || typeof id !== 'string' || !id.trim()) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', id);
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+    document.head.appendChild(s);
+})();
+
+function coffeePlusPushAddToCart(payload) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', 'add_to_cart', {
+        currency: payload.currency || 'USD',
+        value: payload.value,
+        items: payload.items
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // ── Navbar scroll effect ──────────────────────────────────────
@@ -61,9 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ── Add-to-cart feedback ──────────────────────────────────────
+    // ── Add-to-cart feedback + GA4 ecommerce (when configured) ───
     document.querySelectorAll('.add-to-cart').forEach(btn => {
         btn.addEventListener('click', function () {
+            const itemId = this.getAttribute('data-item-id');
+            const itemName = this.getAttribute('data-item-name');
+            const price = parseFloat(this.getAttribute('data-price') || '0');
+            const currency = this.getAttribute('data-currency') || 'USD';
+            if (itemId && itemName && !Number.isNaN(price)) {
+                coffeePlusPushAddToCart({
+                    currency,
+                    value: price,
+                    items: [{ item_id: itemId, item_name: itemName, price, quantity: 1 }]
+                });
+            }
             const original = this.textContent;
             this.textContent = 'Added ✓';
             this.style.background = '#22c55e';
@@ -77,5 +110,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1600);
         });
     });
+
+    const pageType = document.body && document.body.getAttribute('data-page-type');
+    if (pageType === 'product' && window.COFFEEPLUS && window.COFFEEPLUS.ga4MeasurementId) {
+        const pid = document.body.getAttribute('data-product-id');
+        const pname = document.body.getAttribute('data-product-name');
+        const pprice = parseFloat(document.body.getAttribute('data-product-price') || '0');
+        const pcur = document.body.getAttribute('data-product-currency') || 'USD';
+        if (!pid || !pname || Number.isNaN(pprice)) return;
+        let viewItemSent = false;
+        const sendViewItemOnce = () => {
+            if (viewItemSent || typeof window.gtag !== 'function') return;
+            viewItemSent = true;
+            window.gtag('event', 'view_item', {
+                currency: pcur,
+                value: pprice,
+                items: [{ item_id: pid, item_name: pname, price: pprice, quantity: 1 }]
+            });
+        };
+        sendViewItemOnce();
+        let tries = 0;
+        const timer = setInterval(() => {
+            sendViewItemOnce();
+            if (viewItemSent || ++tries > 50) clearInterval(timer);
+        }, 100);
+    }
 
 });

@@ -1290,3 +1290,168 @@ img {
         width: 100%;
     }
 }
+
+/* ==========================================================================
+   SEO content helpers (guides, blog, legal)
+   ========================================================================== */
+.breadcrumbs {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 6.5rem 2rem 0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.breadcrumbs a {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.breadcrumbs a:hover {
+    color: var(--pure-white);
+}
+
+.seo-page {
+    padding: 2rem 2rem 5rem;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.seo-page--light {
+    background: var(--light-bg);
+    color: #333;
+    max-width: none;
+    padding: 3rem 2rem 5rem;
+}
+
+.seo-page--light h1,
+.seo-page--light h2,
+.seo-page--light h3 {
+    color: var(--deep-black);
+}
+
+.seo-prose h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+}
+
+.seo-prose h3 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--soft-grey);
+}
+
+.seo-page--light .seo-prose h3 {
+    color: #444;
+}
+
+.seo-prose p {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.seo-page--light .seo-prose p {
+    color: #444;
+}
+
+.seo-prose ul {
+    margin: 0 0 1rem 1.25rem;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.seo-page--light .seo-prose ul {
+    color: #444;
+}
+
+.seo-prose a {
+    color: var(--care-red);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.seo-prose a:hover {
+    color: #ff5c52;
+}
+
+.seo-page--light .seo-prose a {
+    color: #b91c1c;
+}
+
+.faq-block {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.seo-page--light .faq-block {
+    border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+.faq-block h2 {
+    margin-top: 0;
+}
+
+.faq-item {
+    margin-bottom: 1.25rem;
+}
+
+.faq-item h3 {
+    font-size: 1rem;
+    margin: 0 0 0.35rem;
+}
+
+.faq-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.seo-page--light .faq-item p {
+    color: #555;
+}
+
+.seo-page--light .faq-item h3 {
+    color: #222;
+}
+
+.seo-page--light .faq-block h2 {
+    color: var(--deep-black);
+}
+
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.footer-legal a:hover {
+    color: var(--pure-white);
+}
+
+.nav-links {
+    gap: 1.75rem;
+}
+
+@media (max-width: 1100px) {
+    .nav-links {
+        gap: 1.1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.68rem;
+    }
+}
